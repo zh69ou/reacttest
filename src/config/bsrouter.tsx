@@ -1,6 +1,6 @@
 import React, { Suspense } from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-const DefIndex = React.lazy(()=> import('../pages/index').then(({ DefIndex }) => ({ default: DefIndex })))
+const DefIndex = React.lazy(()=> import('../pages/index'))
 
 export const BsRouter = (props) => {
 	return (
