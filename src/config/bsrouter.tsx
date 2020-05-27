@@ -1,13 +1,24 @@
-import React, { Suspense } from "react"
+import React, { Suspense,useState,useEffect } from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 const DefIndex = React.lazy(()=> import('../pages/index'))
+import {SetsContext,Sets} from "./pubsets"
+import {getSets} from "./common"
+
 
 export const BsRouter = (props) => {
+	const [pubsets,setPubsets] = useState(Sets)
+	useEffect(()=>{
+		let sd = getSets()
+		setPubsets(sd)
+		console.log(sd)
+	})
 	return (
-		<Suspense fallback={<div>Loading...</div>}>
-			<Router>
-				<Route exact path="/" component={DefIndex}></Route>
-			</Router>
-		</Suspense>
+		<SetsContext.Provider value={pubsets}>
+			<Suspense fallback={<div>Loading...</div>}>
+				<Router>
+					<Route exact path="/" component={DefIndex}></Route>
+				</Router>
+			</Suspense>
+		</SetsContext.Provider>
 	)
 }

@@ -1,10 +1,12 @@
-import React from "react"
+import React,{useContext} from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
+import {SetsContext} from "../config/pubsets"
 
-export const DefIndex = (props) => {
+const DefIndex = (props) => {
+	let psets = useContext(SetsContext)
 	return (
 		<div>
-			<div>index</div>
+			<div>index:{psets.name}</div>
 		</div>
 	)
 }
