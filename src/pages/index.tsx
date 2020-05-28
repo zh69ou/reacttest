@@ -5,7 +5,7 @@ import {SetsContext} from "../config/pubsets"
 const DefIndex = (props) => {
 	let psets = useContext(SetsContext)
 	return (
-		<div>
+		<div className="bg-info">
 			<div>index:{psets.name}</div>
 		</div>
 	)
