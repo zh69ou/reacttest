@@ -1,28 +1,44 @@
-import axios from "axios"
 import {Sets} from "./pubsets"
+import {Get} from "./line"
+import qs from "qs"
 
-const username = 'ukey'
+const sname = 'ukey'
 
 const getSets = ()=>{
-	if(getData(username)){
-		Sets.name = 'abc'
+	let sets = getData(sname)
+	if(sets.name){
+		Sets.name = sets.name
 		Sets.time = new Date().getTime().toString()
 	}else{
-		axios.get('http://localhost:8080').then((res)=>{
-			Sets.name = 'abc'
+		Get('http://localhost:8080',[]).then((res)=>{
+			Sets.name = 'bbc'
 			Sets.time = new Date().getTime().toString()
-			setData(username,Sets.name)
+			setData(sname,Sets)
+			window.location.reload()
 		})
 	}
 	return Sets
 }
 
 const getData = (name)=>{
-	return localStorage.getItem(name);
+	let data = localStorage.getItem(name)
+	let sd
+	try{
+		sd = qs.parse(data)
+	}catch(e){
+		sd = data
+	}
+	return sd
 }
 
 const setData = (name,obj)=>{
-	localStorage.setItem('myCat', 'Tom')
+	let st = ''
+	if(typeof(obj)!='string'){
+		st = qs.stringify(obj)
+	}else{
+		st = obj
+	}
+	localStorage.setItem(name, st)
 }
 
 const delData = (name)=>{

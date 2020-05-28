@@ -8,10 +8,9 @@ import {getSets} from "./common"
 export const BsRouter = (props) => {
 	const [pubsets,setPubsets] = useState(Sets)
 	useEffect(()=>{
-		let sd = getSets()
-		setPubsets(sd)
-		console.log(sd)
-	})
+		let v = getSets()
+		setPubsets(v)
+	},[])
 	return (
 		<SetsContext.Provider value={pubsets}>
 			<Suspense fallback={<div>Loading...</div>}>
