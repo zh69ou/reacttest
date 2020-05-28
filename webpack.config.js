@@ -6,7 +6,7 @@ var HtmlWebpackPlugin = require('html-webpack-plugin');
 module.exports = {
 	entry:{
 		common:['react','react-dom','react-router-dom','axios'],
-		// pub:[path.resolve(__dirname, 'assets/scss/bootstrap.scss')],
+		pub:[path.resolve(__dirname, 'assets/scss/bootstrap.scss')],
 		index:'./src/index.tsx'
 	},
 	devServer:{
