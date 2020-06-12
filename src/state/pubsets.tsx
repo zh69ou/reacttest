@@ -1,7 +1,7 @@
 import React from "react"
 
 export const Sets = {
-	name:'',
+	name:'网站名称',
 	time:'',
 }
 

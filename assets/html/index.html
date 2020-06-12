@@ -4,8 +4,37 @@
 	<meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 	<title></title>
+	<style type="text/css">
+		#loading{
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			background-color: rgba(0, 0, 0, 0.6);
+			position: fixed;
+			left: 0rem;
+			top: 0rem;
+			z-index: 100;
+			width: 100%;
+			height: 100%;
+		}
+		#loading>img{
+			width: 20px;
+			height: 20px;
+			-webkit-animation:load 1.5s infinite linear;
+		}
+		@-webkit-keyframes load{
+			0%{ transform: rotate(0deg); }
+			100%{ transform: rotate(360deg); }
+		}
+		#app{
+			display: none;
+		}
+	</style>
 </head>
 <body>
 	<div id="app"></div>
+	<div id="loading">
+		<img src="/assets/img/loading.png" alt="">
+	</div>
 </body>
 </html>
