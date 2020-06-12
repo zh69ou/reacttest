@@ -3,7 +3,6 @@ import { BrowserRouter as Router, Route, Link } from "react-router-dom"
 const DefIndex = React.lazy(()=> import('../pages/index'))
 import {SetsContext,Sets} from "../state/pubsets"
 
-
 export const BsRouter = (props) => {
 	const [pubsets,setPubsets] = useState(Sets)
 	return (
