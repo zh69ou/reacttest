@@ -1,7 +1,8 @@
 import React, { Suspense,useState,useEffect } from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-const DefIndex = React.lazy(()=> import('../pages/index'))
 import {SetsContext,Sets} from "../state/pubsets"
+// 页面
+const DefIndex = React.lazy(()=> import('../pages/index'))
 
 export const BsRouter = (props) => {
 	const [pubsets,setPubsets] = useState(Sets)
