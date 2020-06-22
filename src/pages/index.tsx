@@ -1,6 +1,6 @@
 import React,{useContext} from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import {SetsContext} from "../state/pubsets"
+import {SetsContext} from "../state/sets"
 
 const DefIndex = (props) => {
 	let psets = useContext(SetsContext)
