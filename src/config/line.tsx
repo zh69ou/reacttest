@@ -38,11 +38,7 @@ const Line = (opts:any)=> {
 	    }
 
 	    const instance = axios(deconfig).then(response =>{
-	    	try{
-	    		resolve(JSON.parse(response.data))
-	    	}catch(e){
-	    		resolve(response.data)
-	    	}
+    		resolve(response.data)
 	    }).catch(error => {
 	    	// 打印错误
 	    	reject(error)
