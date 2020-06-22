@@ -1,6 +1,6 @@
 import React, { Suspense,useState,useEffect } from "react"
 import { BrowserRouter as Router, Route, Link } from "react-router-dom"
-import {SetsContext,Sets} from "../state/pubsets"
+import {SetsContext,Sets} from "../state/sets"
 // 页面
 const DefIndex = React.lazy(()=> import('../pages/index'))
 
