@@ -1,4 +1,8 @@
 import React, { useEffect } from "react"
+/**
+ * 加载中
+ * @Author zhou69.1@qq.com 2020-06-22
+ */
 export const IsLoad = (props) => {
 	useEffect(()=>{
 		let loading = props.loading?props.loading:false
