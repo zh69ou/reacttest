@@ -1,5 +1,3 @@
-import {Sets} from "../state/pubsets"
-import {Get} from "./line"
 import qs from "qs"
 
 const getData = (name)=>{
