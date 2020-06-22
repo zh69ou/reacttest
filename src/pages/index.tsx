@@ -4,7 +4,6 @@ import {SetsContext} from "../state/sets"
 import {IsLoad} from "../config/pub"
 
 const DefIndex = (props) => {
-	let [loading,setLoad] = useState(true)
 	let psets = useContext(SetsContext)
 	useEffect(()=>{
 		IsLoad(false)
