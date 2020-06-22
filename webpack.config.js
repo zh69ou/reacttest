@@ -17,7 +17,7 @@ module.exports = {
 			]
 		},
 		compress:true,
-		port:8080
+		port:8000
 	},
 	output:{
 		path:path.resolve(__dirname,'dist'),

@@ -1,8 +1,8 @@
 const userKey = 'user'
-const BaseUrl = '/'
+const BaseUrl = '/api'
 
 const Api = {
-	UserLogin:BaseUrl+''
+	UserLogin:BaseUrl+'/login'
 }
 
 export{

@@ -1,8 +1,11 @@
 import React from "react"
 import {getData,setData,delData} from "../config/common"
-import {userKey,Api} from "../config/pub"
-import {Post} from "../config/line"
+import {userKey} from "../config/pub"
 
+/**
+ * 获取用户缓存数据
+ * @Author zhou69.1@qq.com 2020-06-22
+ */
 const getUser = ()=>{
 	let user = getData(userKey)
 	if(user){
@@ -12,13 +15,25 @@ const getUser = ()=>{
 	}
 }
 
+/**
+ * 本地缓存用户数据
+ * @Author zhou69.1@qq.com 2020-06-22
+ * @param        uinfo      [description]
+ */
 const setUser = (uinfo)=>{
-	Post(Api.UserLogin,{}).then((res)=>{
+	return setData(userKey,uinfo)
+}
 
-	}).catch((error)=>{})
+/**
+ * 删除用户缓存
+ * @Author zhou69.1@qq.com 2020-06-22
+ */
+const delUser = ()=>{
+	return delData(userKey)
 }
 
 export{
 	getUser,
-	setUser
+	setUser,
+	delUser,
 }
