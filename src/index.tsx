@@ -8,9 +8,9 @@ ReactDOM.render(
     <BsRouter />,
     document.getElementById("app"),
     ()=>{
-    	setTimeout(()=>{
-    		document.getElementById("app").style.display = "block"
-    		document.getElementById("loading").style.display = "none"
-    	},500)
+    	// setTimeout(()=>{
+    	// 	document.getElementById("app").style.display = "block"
+    	// 	document.getElementById("loading").style.display = "none"
+    	// },500)
     }
 )
