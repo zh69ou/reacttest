@@ -6,7 +6,12 @@ const getData = (name)=>{
 	let data = localStorage.getItem(name)
 	let sd
 	try{
-		sd = qs.parse(data)
+		var pattern = /^[a-z0-9]*=.*$/;
+        if(pattern.test(data)){
+        	sd = qs.parse(data)
+        }else{
+        	sd = data
+        }
 	}catch(e){
 		sd = data
 	}
