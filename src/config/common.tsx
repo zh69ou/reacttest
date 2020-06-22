@@ -25,11 +25,21 @@ const setData = (name,obj)=>{
 	}else{
 		st = obj
 	}
-	localStorage.setItem(name, st)
+	try{
+		localStorage.setItem(name, st)
+		return true
+	}catch(e){
+		return false
+	}
 }
 
 const delData = (name)=>{
-	localStorage.removeItem(name)
+	try{
+		localStorage.removeItem(name)
+		return true
+	}catch(e){
+		return false
+	}
 }
 
 export {
