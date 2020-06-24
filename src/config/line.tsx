@@ -1,5 +1,5 @@
 import axios from 'axios'
-// import qs from 'qs'
+import qs from 'qs'
 
 const Line = (opts:any)=> {
 	return new Promise((resolve,reject)=>{
@@ -17,7 +17,7 @@ const Line = (opts:any)=> {
 				"Accept":"application/json",
 				"Content-Type":"application/x-www-form-urlencoded;charset=UTF-8"
 			},
-			params:opts.data,
+			params:opts.params,
 			data:opts.data,
 			transformRequest:[(data)=>{
 				// 发送数据前处理数据
@@ -29,13 +29,6 @@ const Line = (opts:any)=> {
 			}],
 			timeout:30000
 		}
-
-		// 拼接发送
-		if(deconfig.method.toLowerCase()=='get'){
-			delete deconfig.data
-	    }else{
-	    	delete deconfig.params
-	    }
 
 	    const instance = axios(deconfig).then(response =>{
     		resolve(response.data)
@@ -59,7 +52,7 @@ export const Get = (url:string,params:any)=>{
 	let config = {
 		"method":"get",
 		"url":url,
-		"data":data
+		"params":data
 	}
 	return Line(config)
 }
@@ -69,7 +62,7 @@ export const Post = (url:string,params:any)=>{
 	let config = {
 		"method":"post",
 		"url":url,
-		"data":data
+		"data":qs.stringify(data)
 	}
 	return Line(config)
 }
@@ -79,7 +72,7 @@ export const Put = (url:string,params:any)=>{
 	let config = {
 		"method":"put",
 		"url":url,
-		"data":data
+		"data":qs.stringify(data)
 	}
 	return Line(config)
 }
@@ -89,7 +82,7 @@ export const Patch = (url:string,params:any)=>{
 	let config = {
 		"method":"patch",
 		"url":url,
-		"data":data
+		"data":qs.stringify(data)
 	}
 	return Line(config)
 }
@@ -99,7 +92,7 @@ export const Delete = (url:string,params:any)=>{
 	let config = {
 		"method":"delete",
 		"url":url,
-		"data":data
+		"data":qs.stringify(data)
 	}
 	return Line(config)
 }
