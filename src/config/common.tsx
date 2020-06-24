@@ -1,6 +1,11 @@
 import qs from "qs"
 
-const getData = (name)=>{
+/**
+ * 获取缓存
+ * @Author zhou69.1@qq.com 2020-06-24
+ * @param   name       缓存名称
+ */
+export const getData = (name)=>{
 	let data = localStorage.getItem(name)
 	let sd
 	try{
@@ -16,7 +21,13 @@ const getData = (name)=>{
 	return sd
 }
 
-const setData = (name,obj)=>{
+/**
+ * 设置缓存
+ * @Author zhou69.1@qq.com 2020-06-24
+ * @param       name       缓存名称
+ * @param       obj        缓存内容
+ */
+export const setData = (name,obj)=>{
 	let st = ''
 	if(typeof(obj)!='string'){
 		st = qs.stringify(obj)
@@ -31,17 +42,16 @@ const setData = (name,obj)=>{
 	}
 }
 
-const delData = (name)=>{
+/**
+ * 删除缓存
+ * @Author zhou69.1@qq.com 2020-06-24
+ * @param        name       缓存名称
+ */
+export const delData = (name)=>{
 	try{
 		localStorage.removeItem(name)
 		return true
 	}catch(e){
 		return false
 	}
-}
-
-export {
-	getData,
-	setData,
-	delData
 }
