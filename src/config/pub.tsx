@@ -6,6 +6,11 @@ export const BaseUrl = '/api'
 export const Api = {
 	UserLogin:BaseUrl+'/login'
 }
+// 语言包
+export const Language = {
+	zh:'中文',
+	en:'english'
+}
 /**
  * 加载中公用方法
  * @Author zhou69.1@qq.com 2020-06-22
