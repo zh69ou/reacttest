@@ -6,6 +6,12 @@ export const BaseUrl = '/api'
 export const Api = {
 	UserLogin:BaseUrl+'/login'
 }
+// 前段地址
+export const Url = {
+	Index:'/',
+	User:'/user',
+	Login:'/login',
+}
 // 语言包
 export const Language = {
 	zh:'中文',

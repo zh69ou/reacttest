@@ -1,7 +1,7 @@
 import React, { Suspense,useState,useEffect } from "react"
 import { BrowserRouter as Router, Route, Link,Switch,Redirect } from "react-router-dom"
 import {SetsContext,Sets} from "../state/sets"
-import {userKey} from "./pub"
+import {userKey,Url} from "./pub"
 import {getData} from "./common"
 // 页面
 const DefIndex = React.lazy(()=> import('../pages/index'))
@@ -20,13 +20,13 @@ export const BsRouter = (props) => {
 			<Suspense fallback={<div>Loading...</div>}>
 				<Router>
 					<Switch>
-						<Route exact path="/">
+						<Route exact path={Url.Index}>
 							<DefIndex />
 						</Route>
-						<Route exact path="/user">
+						<Route exact path={Url.User}>
 							{isLogin()?<Redirect to="/login" />:<User />}
 						</Route>
-						<Route exact path="/login" component={Login}>
+						<Route exact path={Url.Login} component={Login}>
 						</Route>
 						<Route component={NoPage}/>
 					</Switch>
