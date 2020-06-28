@@ -24,7 +24,7 @@ export const BsRouter = (props) => {
 							<DefIndex />
 						</Route>
 						<Route exact path={Url.User}>
-							{isLogin()?<Redirect to="/login" />:<User />}
+							{isLogin()?<Redirect to={Url.Login} />:<User />}
 						</Route>
 						<Route exact path={Url.Login} component={Login}>
 						</Route>
