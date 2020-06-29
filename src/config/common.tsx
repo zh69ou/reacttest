@@ -21,8 +21,6 @@ export const toStr = (obj)=>{
 /**
  * 字符串转对象
  * @Author zhou69.1@qq.com 2020-06-28
- * @param  {[type]}        str        [description]
- * @return {[type]}                   [description]
  */
 export const toObj = (str)=>{
 	let sd
