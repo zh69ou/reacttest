@@ -1,5 +1,7 @@
 // 用户缓存名称
 export const userKey = 'user'
+// 拦截地址名称
+export const backUrl = 'burl'
 // 接口地址
 export const BaseUrl = '/api'
 //接口地址
