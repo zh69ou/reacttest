@@ -1,32 +1,46 @@
 import React, { useState,useEffect } from "react"
+import ReactDOM from 'react-dom'
 
-const AlertMsg = (props)=>{
-	let [show,upShow] = useState(false)
+const AlertBox = (props)=>{
 	let colorlist = ['primary','secondary','success','danger','warning','info','light','dark']
 	let color = props.color&&colorlist.some((info)=>info==props.color)?props.color:'primary'
-	useEffect(()=>{
-		upShow(props.show)
-		if(props.show){
-			let t = 3
+	return (
+		<div className={"alert alert-dismissible show alert-"+color}>
+			{props.children}
+			<button onClick={()=>props.useClose()} type="button" className="close">
+				<span>&times;</span>
+			</button>
+		</div>
+	)
+}
+
+const AlertMsg = (props)=>{
+	return new Promise((resolve)=>{
+		const box = document.createElement('div')
+		document.body.appendChild(box)
+		if(props.auclose){
+			let t= 3
 			let timefuc = setInterval(()=>{
-				console.log('t',t)
 				if(t>1){
 					t -=1
 				}else{
-					upShow(false)
+					close()
 					clearInterval(timefuc)
 				}
 			},1000)
 		}
-	},[props.show,props.time])
-	return show?(
-		<div className={"alert alert-"+color}>
-			<button onClick={()=>{upShow(false)}} type="button" className="close">
-				<span>&times;</span>
-			</button>
-			{props.children}
-		</div>
-	):null
+
+		const close = ()=>{
+			document.body.removeChild(box)
+			resolve()
+		}
+		ReactDOM.render(
+			<AlertBox {...props} useClose={()=>{
+				close()
+			}} />,
+			box
+		)
+	})
 }
 
 export default AlertMsg

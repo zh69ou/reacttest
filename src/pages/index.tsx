@@ -4,6 +4,8 @@ import {SetsContext} from "../state/sets"
 import {IsLoad} from "../config/pub"
 import AlertMsg from "../components/alert"
 
+import "../components/scss/alert.scss"
+
 const DefIndex = (props) => {
 	let psets = useContext(SetsContext)
 	let [salert,upSalert] = useState(false)
@@ -14,11 +16,10 @@ const DefIndex = (props) => {
 	return (
 		<div className="bg-info">
 			<span onClick={()=>{
-				upTime(Math.round(Math.random()*10000))
-				console.log('time',time)
-				upSalert(true)
+				AlertMsg({children:'<a>abc</a>',auclose:true}).then((res)=>{
+					console.log(res)
+				})
 			}}>显示</span>
-			<AlertMsg show={salert} time={time}>index:{psets.name}</AlertMsg>
 		</div>
 	)
 }
