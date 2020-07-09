@@ -4,7 +4,7 @@ import {SetsContext,Sets} from "../state/sets"
 import {userKey,Url,backUrl} from "./pub"
 import {getData,setData} from "./common"
 // 页面
-import DefIndex from '../pages/index'
+const DefIndex = React.lazy(()=> import('../pages/index'))
 const NoPage = React.lazy(()=> import('../pages/nopage'))
 const User = React.lazy(()=> import('../pages/user'))
 const Login = React.lazy(()=> import('../pages/login'))
