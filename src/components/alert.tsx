@@ -16,8 +16,15 @@ const AlertBox = (props)=>{
 
 const AlertMsg = (props)=>{
 	return new Promise((resolve)=>{
+		let abox = document.getElementById('abox')
+		if(!abox){
+			abox = document.createElement('div')
+			abox.id = 'abox'
+			abox.className = 'fixed-top'
+			document.body.appendChild(abox)
+		}
 		const box = document.createElement('div')
-		document.body.appendChild(box)
+		abox.appendChild(box)
 		if(props.auclose){
 			let t= 3
 			let timefuc = setInterval(()=>{
@@ -31,7 +38,7 @@ const AlertMsg = (props)=>{
 		}
 
 		const close = ()=>{
-			document.body.removeChild(box)
+			abox.removeChild(box)
 			resolve()
 		}
 		ReactDOM.render(
