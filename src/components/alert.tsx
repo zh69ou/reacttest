@@ -50,4 +50,7 @@ const AlertMsg = (props)=>{
 	})
 }
 
-export default AlertMsg
+export {
+	AlertBox,
+	AlertMsg
+}
