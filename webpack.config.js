@@ -17,6 +17,7 @@ module.exports = {
 			]
 		},
 		compress:true,
+		hot: true,
 		port:8000
 	},
 	output:{

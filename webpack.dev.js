@@ -7,7 +7,7 @@ module.exports = merge(common,{
 	plugins:[
 		new CleanWebpackPlugin(),
 		new webpack.NamedModulesPlugin(),
-	  new webpack.HotModuleReplacementPlugin()
+		new webpack.HotModuleReplacementPlugin()
 	],
 	mode:'development'
 })
