@@ -1,7 +1,7 @@
 import React, { useState,useEffect } from "react"
 import ReactDOM from 'react-dom'
 
-const AlertBox = (props)=>{
+export const AlertBox = (props)=>{
 	let colorlist = ['primary','secondary','success','danger','warning','info','light','dark']
 	let color = props.color&&colorlist.some((info)=>info==props.color)?props.color:'primary'
 	return (
@@ -14,7 +14,7 @@ const AlertBox = (props)=>{
 	)
 }
 
-const AlertMsg = (props)=>{
+export const AlertMsg = (props)=>{
 	return new Promise((resolve)=>{
 		let abox = document.getElementById('abox')
 		if(!abox){
@@ -48,9 +48,4 @@ const AlertMsg = (props)=>{
 			box
 		)
 	})
-}
-
-export {
-	AlertBox,
-	AlertMsg
 }
