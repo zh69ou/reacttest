@@ -7,7 +7,12 @@ export const ListBox = (props)=>{
 		return <th key={i}>{info}</th>
 	})
 	let field = props.field
-	const usefield = (info)=>{
+	let butlist = (list,info)=>{
+		return (list.map((but,i) =>(
+			!but.k||but.v!=info[but.k]?<span onClick={()=>{typeof(but.callback)=='function'&&but.callback(info)}} key={i}>{but.html}</span>:null
+		)))
+	}
+	let usefield = (info)=>{
 		let html = []
 		props.field.map((type,i)=>{
 			switch (type.type) {
@@ -15,11 +20,12 @@ export const ListBox = (props)=>{
 					html.push(<td key={i}>{info[type.code]}</td>)
 					break;
 				case "date":
-					let t = new Date(info[type.code])
-					html.push(<td key={i}>{t.getFullYear()+'-'+t.getMonth()+'-'+t.getDate()}</td>)
+					var pt = /^[0-9]*$/;
+					let t = new Date(pt.test(info[type.code])?Number(info[type.code])*1000:info[type.code])
+					html.push(<td key={i}>{t.getFullYear()+'-'+(t.getMonth()+1)+'-'+t.getDate()}</td>)
 					break;
 				case "but":
-					html.push(<td key={i}>{type.code}</td>)
+					html.push(<td key={i}>{butlist(type.code,info)}</td>)
 					break;
 				default:
 					break;
