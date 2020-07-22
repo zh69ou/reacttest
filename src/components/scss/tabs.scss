@@ -1,0 +1,54 @@
+@import "../../../assets/scss/functions";
+@import "../../config/pub";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/utilities";
+@import "../../../assets/scss/root";
+@import "../../../assets/scss/reboot";
+@import "../../../assets/scss/type";
+@import "../../../assets/scss/grid";
+@import "../../../assets/scss/buttons";
+@import "../../../assets/scss/close";
+@import "../../../assets/scss/nav";
+
+.merg{
+	@include media-breakpoint-up('md') {
+		.nav-tabs{
+			padding:0rem;
+			border:0rem;
+			border-right: $nav-tabs-border-width solid $nav-tabs-border-color;
+			.nav-item {
+				margin: 0rem;
+			    margin-right: -$nav-tabs-border-width;
+			}
+			.nav-link {
+				border: $nav-tabs-border-width solid transparent;
+				@include border-left-radius($nav-tabs-border-radius);
+			}
+			.nav-link.active,
+			.nav-item.show .nav-link {
+				color: $nav-tabs-link-active-color;
+				background-color: $nav-tabs-link-active-bg;
+				border-color: $nav-tabs-link-merg-active-border-color;
+			}
+		}
+	}
+	@include media-breakpoint-down('md') {
+		.nav-tabs{
+			padding:0rem;
+			border:0rem;
+			.nav-item {
+				margin: 0rem;
+			}
+			.nav-link {
+				border: $nav-tabs-border-width solid transparent;
+				@include border-left-radius($nav-tabs-border-radius);
+			}
+			.nav-link.active,
+			.nav-item.show .nav-link {
+				color: $nav-tabs-link-active-color;
+				background-color: $nav-tabs-link-active-bg;
+				border-color: $nav-tabs-border-color;
+			}
+		}
+	}
+}
