@@ -1,20 +1,43 @@
 import React,{useState,useContext,useEffect} from "react"
 import {IsLoad} from "../config/pub"
 
-import {Crumb} from "../components/crumb"
-import "../components/scss/crumb.scss"
+import {Tabs} from "../components/tabs"
+import "../components/scss/tabs.scss"
 
 const DefIndex = (props) => {
 	useEffect(()=>{
 		IsLoad(false)
 	},[])
+	let tab1 = ()=>{
+		return (
+			<a>tab1</a>
+		)
+	}
+	let tab2 = ()=>{
+		return (
+			<a>tab2</a>
+		)
+	}
+	let con1 = ()=>{
+		return (
+			<a>con1</a>
+		)
+	}
+	let con2 = ()=>{
+		return (
+			<a>con2</a>
+		)
+	}
 	let menu = [
-		{id:1,name:'测试1',url:'/'},
-		{id:2,name:'测试2',url:'/'},
-		{id:3,name:'测试3',url:'/'},
+		tab1(),
+		tab2(),
+	]
+	let content = [
+		con1(),
+		con2(),
 	]
 	return (
-		<Crumb menu={menu}><a>添加</a></Crumb>
+		<Tabs act={0} type={0} menu={menu} content={content}><a>添加</a></Tabs>
 	)
 }
 export default DefIndex
