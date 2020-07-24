@@ -15,37 +15,41 @@ export const AlertBox = (props)=>{
 }
 
 export const AlertMsg = (props)=>{
-	return new Promise((resolve)=>{
-		let abox = document.getElementById('abox')
-		if(!abox){
-			abox = document.createElement('div')
-			abox.id = 'abox'
-			abox.className = 'fixed-top'
-			document.body.appendChild(abox)
-		}
-		const box = document.createElement('div')
-		abox.appendChild(box)
-		if(props.auclose){
-			let t= 3
-			let timefuc = setInterval(()=>{
-				if(t>1){
-					t -=1
-				}else{
-					close()
-					clearInterval(timefuc)
-				}
-			},1000)
-		}
+	return new Promise((resolve,reject)=>{
+		try{
+			let abox = document.getElementById('abox')
+			if(!abox){
+				abox = document.createElement('div')
+				abox.id = 'abox'
+				abox.className = 'fixed-top'
+				document.body.appendChild(abox)
+			}
+			const box = document.createElement('div')
+			abox.appendChild(box)
+			if(props.auclose){
+				let t= 3
+				let timefuc = setInterval(()=>{
+					if(t>1){
+						t -=1
+					}else{
+						close()
+						clearInterval(timefuc)
+					}
+				},1000)
+			}
 
-		const close = ()=>{
-			abox.removeChild(box)
-			resolve()
+			const close = ()=>{
+				abox.removeChild(box)
+				resolve()
+			}
+			ReactDOM.render(
+				<AlertBox {...props} useClose={()=>{
+					close()
+				}} />,
+				box
+			)
+		}catch(err){
+			reject(err)
 		}
-		ReactDOM.render(
-			<AlertBox {...props} useClose={()=>{
-				close()
-			}} />,
-			box
-		)
 	})
 }
