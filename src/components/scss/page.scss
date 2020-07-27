@@ -1,0 +1,23 @@
+@import "../../../assets/scss/functions";
+@import "../../config/pub";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/utilities";
+@import "../../../assets/scss/root";
+@import "../../../assets/scss/reboot";
+@import "../../../assets/scss/type";
+@import "../../../assets/scss/grid";
+@import "../../../assets/scss/buttons";
+@import "../../../assets/scss/pagination";
+@import "../../../assets/scss/forms";
+
+.page-item{
+	.into{
+		height: $pagination-line-height;
+		line-height: $pagination-line-height;
+		width: 2rem;
+		border:$pagination-border-width solid $pagination-border-color;
+		padding-top:$pagination-padding-y;
+		padding-bottom:$pagination-padding-y;
+		text-align: center;
+	}
+}
