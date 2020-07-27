@@ -1,29 +1,18 @@
 import React,{useState,useContext,useEffect} from "react"
 import {IsLoad} from "../config/pub"
 
-import {RollIs} from "../components/roll"
+import {Page} from "../components/page"
+import "../components/scss/page.scss"
 
 const DefIndex = (props) => {
-	const [num,setNum] = useState(30)
-	const hlist = ()=>{
-		let ht = []
-		for (var i = 0; i < num; i++) {
-			ht.push(<div key={i}><a>添加-{i}</a></div>)
-		}
-		return ht
-	}
 	useEffect(()=>{
 		IsLoad(false)
 	},[])
-	RollIs(props).then((res)=>{
-		if(num<100){
-			setNum(num+10)
-		}
-		console.log(num)
-	})
+	const callback = (num)=>{
+	}
 	return (
 		<div>
-			{hlist()}
+		<Page allpage="10" callback={(e)=>{callback(e)}}></Page>
 		</div>
 	)
 }
