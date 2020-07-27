@@ -39,7 +39,7 @@ export const Page = (props)=>{
 			</li>
 			{pageList()}
 			<li className="page-item">
-				<input type="number" onChange={(e)=>{toPage(e.target.value)}} className="into" />
+				<input type="number" value={page} onChange={(e)=>{toPage(e.target.value)}} className="into" />
 			</li>
 			<li className="page-item" onClick={()=>toPage(allpage)}>
 				<div className="page-link">
