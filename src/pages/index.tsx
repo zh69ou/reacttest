@@ -10,7 +10,7 @@ const DefIndex = (props) => {
 	},[])
 	return (
 		<div>
-		<DateBox></DateBox>
+			<DateBox choice="1" callback={(res)=>{}}></DateBox>
 		</div>
 	)
 }
