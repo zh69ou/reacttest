@@ -1,0 +1,14 @@
+@import "../../../assets/scss/functions";
+@import "../../config/pub";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/utilities";
+@import "../../../assets/scss/root";
+@import "../../../assets/scss/reboot";
+@import "../../../assets/scss/type";
+@import "../../../assets/scss/grid";
+@import "../../../assets/scss/buttons";
+@import "../../../assets/scss/close";
+@import "../../../assets/scss/modal";
+.modal{
+	display: block;
+}
