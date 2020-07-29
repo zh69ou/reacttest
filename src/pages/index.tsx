@@ -1,36 +1,27 @@
 import React,{useState,useContext,useEffect} from "react"
 import {IsLoad} from "../config/pub"
 
-import {DropDown} from "../components/dropdown"
-import "../components/scss/dropdown.scss"
+import {Modal} from "../components/modal"
+import "../components/scss/modal.scss"
 
 const DefIndex = (props) => {
 	useEffect(()=>{
 		IsLoad(false)
 	},[])
+	const opm = ()=>{
+		let box
+		let obj = {
+			title:<a className="text-danger">提示</a>,
+			mbody:<a>是否删除？</a>,
+			but:<div><button>取消</button><button onClick={()=>{box.remove()}}>确定</button></div>
+		}
+		Modal(obj).then((res)=>{
+			box = res
+		}).catch((e)=>{})
+	}
 	return (
-		<div className="d-flex justify-content-around">
-			<DropDown>
-				<div className="dropdown-item active">Cras justo odio</div>
-				<div className="dropdown-item">Dapibus ac facilisis in</div>
-				<div className="dropdown-item">Morbi leo risus</div>
-				<div className="dropdown-item">Porta ac consectetur ac</div>
-				<div className="dropdown-item">Vestibulum at eros</div>
-			</DropDown>
-			<DropDown>
-				<div className="dropdown-item active">Cras justo odio</div>
-				<div className="dropdown-item">Dapibus ac facilisis in</div>
-				<div className="dropdown-item">Morbi leo risus</div>
-				<div className="dropdown-item">Porta ac consectetur ac</div>
-				<div className="dropdown-item">Vestibulum at eros</div>
-			</DropDown>
-			<DropDown>
-				<div className="dropdown-item active">Cras justo odio</div>
-				<div className="dropdown-item">Dapibus ac facilisis in</div>
-				<div className="dropdown-item">Morbi leo risus</div>
-				<div className="dropdown-item">Porta ac consectetur ac</div>
-				<div className="dropdown-item">Vestibulum at eros</div>
-			</DropDown>
+		<div>
+			<button onClick={()=>{opm()}}>打开</button>
 		</div>
 	)
 }
