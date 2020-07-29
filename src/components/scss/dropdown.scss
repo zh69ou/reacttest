@@ -1,0 +1,46 @@
+@import "../../../assets/scss/functions";
+@import "../../config/pub";
+@import "../../../assets/scss/mixins";
+@import "../../../assets/scss/utilities";
+@import "../../../assets/scss/root";
+@import "../../../assets/scss/reboot";
+@import "../../../assets/scss/type";
+@import "../../../assets/scss/grid";
+@import "../../../assets/scss/buttons";
+@import "../../../assets/scss/close";
+@import "../../../assets/scss/dropdown";
+@import "../../../assets/scss/list-group";
+
+.drops-enter {
+	opacity: 0;
+	display: none;
+}
+.drops-enter-active {
+	opacity: 1;
+	display: block;
+	transition: opacity 200ms;
+}
+.drops-enter-done {
+	display: block;
+}
+.drops-exit {
+	opacity: 1;
+	display: block;
+}
+.drops-exit-active {
+	opacity: 0;
+	transition: opacity 200ms;
+	display: none;
+}
+.drops-exit-done {
+	display: none;
+}
+.dropdown-menu{
+	width: 100%;
+	.dropdown-item{
+		width: 100%;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space:nowrap;
+	}
+}
