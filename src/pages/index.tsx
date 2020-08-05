@@ -1,27 +1,36 @@
-import React,{useState,useContext,useEffect} from "react"
+import React,{useState,useContext,useEffect,useRef} from "react"
 import {IsLoad} from "../config/pub"
 
-import {Modal} from "../components/modal"
-import "../components/scss/modal.scss"
+import {HtmlToImg,ToImage} from "../components/htmltoimg"
 
 const DefIndex = (props) => {
+	const [simg,setSimg] = useState(null)
+	const wimg = 'http://test.kodo.esports168.com/15f20d9b54957e96615.png'
 	useEffect(()=>{
 		IsLoad(false)
+		ToImage(wimg).then((res)=>{
+			setSimg(res)
+		}).catch((err)=>{
+			console.log('err',err)
+		})
 	},[])
-	const opm = ()=>{
-		let box
-		let obj = {
-			title:<a className="text-danger">提示</a>,
-			mbody:<a>是否删除？</a>,
-			but:<div><button>取消</button><button onClick={()=>{box.remove()}}>确定</button></div>
-		}
-		Modal(obj).then((res)=>{
-			box = res
-		}).catch((e)=>{})
-	}
+	const convas = useRef(null)
 	return (
-		<div>
-			<button onClick={()=>{opm()}}>打开</button>
+		<div id="bac">
+			<div ref={convas}>
+				<div>测试</div>
+				<div>测试</div>
+				<div>测试</div>
+				<div>测试</div>
+				<img src={wimg} />
+				<img src={simg} />
+				<div>测试</div>
+				<div>测试</div>
+				<div>测试</div>
+			</div>
+			<button onClick={()=>{HtmlToImg(document.getElementById('bac')).then((res:string)=>{
+				setSimg(res)
+			}).catch((err)=>{console.log(err)})}}>打开</button>
 		</div>
 	)
 }
